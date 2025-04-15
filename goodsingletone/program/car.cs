@@ -34,6 +34,11 @@ namespace GoodSingleton
         }
 
         public void Drive() => Console.WriteLine($"{Name} go");
+
+        public static void Reset()
+        {
+            _instance = null;
+        }
     }
 
     class Program

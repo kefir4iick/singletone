@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using Xunit;
+using BadSingleton;
 
 namespace BadSingleton.Tests
 {
@@ -32,8 +33,8 @@ namespace BadSingleton.Tests
         {
             Car.Reset();
 
-            string firstCar = null;
-            string secondCar = null;
+            string first = null;
+            string second = null;
 
             var thread1 = new Thread(() => 
                 first = Car.GetInstance("corvette").Name);

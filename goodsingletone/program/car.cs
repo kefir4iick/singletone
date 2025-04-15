@@ -1,7 +1,7 @@
 using System;
 using System.Threading;
 
-namespace BadSingleton
+namespace GoodSingleton
 {
     public sealed class Car
     {

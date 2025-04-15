@@ -10,6 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../badsingletone/program/car.csproj" />
+    <ProjectReference Include="../../badsingletone/program/car.csproj" />
   </ItemGroup>
 </Project>

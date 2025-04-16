@@ -21,7 +21,7 @@ namespace GoodSingleton.Tests
                 }
             }
             
-            Assert.False(race, "there is race condition")
+            Assert.False(race, "there is race condition");
         }
 
         private bool RunRaceConditionTest()

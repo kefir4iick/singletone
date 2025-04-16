@@ -16,31 +16,26 @@ namespace BadSingleton.Tests
             {
                 if (RunRaceConditionTest())
                 {
-                    Console.WriteLine("there is race condition");
                     race = true;
                     break; 
                 }
-                Console.WriteLine();
             }
 
-            if (!race)
-            {
-                Console.WriteLine("there is no race condition");
-            }
+            Assert.True(race, "there is no race condition");
         }
 
         private bool RunRaceConditionTest()
         {
             Car.Reset();
 
-            string first = null;
-            string second = null;
+            Car first = null;
+            Car second = null;
 
             var thread1 = new Thread(() => 
-                first = Car.GetInstance("corvette").Name);
+                first = Car.GetInstance("corvette"));
                 
             var thread2 = new Thread(() => 
-                second = Car.GetInstance("porsche").Name);
+                second = Car.GetInstance("porsche"));
 
             thread1.Start();
             thread2.Start();
@@ -48,7 +43,9 @@ namespace BadSingleton.Tests
             thread1.Join();
             thread2.Join();
 
-            return first != second;
+            bool dif = !ReferenceEquals(first, second);
+
+            return dif;
         }
     }
 }
